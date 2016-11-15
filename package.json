@@ -1,5 +1,5 @@
 {
-  "name": "ui-project-template",
+  "name": "cuff_ui",
   "version": "0.0.0",
   "scripts": {
     "test": "gulp test",

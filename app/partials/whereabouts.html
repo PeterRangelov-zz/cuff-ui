@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<script type='text/javascript' src='lib/warn_on_reload.js'></script>
+<body>
+	<h1 class='text-success'>Subject whereabouts</h1>
+	<hr>
+	<form novalidate>
+		<div class='form-group'>
+			<label for='address.city'>City</label>
+			<input type='text' name='address.city' ng-model='address.city' class='form-control'>
+		</div>
+			
+		<div class='form-group'>
+			<label for='address.state'>State</label>
+			<input type='text' name='address.state' ng-model='address.state' class='form-control'>
+		</div>
+
+		<div class='form-group'>
+			<label for='address.zipcode'>Zipcode</label>
+			<input type='text' name='address.zipcode' ng-model='address.zipcode' class='form-control'>
+		</div>
+		
+		
+
+
+
+			<div class="pull-right">
+				<button type='button' class='btn-sm btn-primary' ng-click='previousStep()'>Back</button>
+				<button type='button' class='btn-sm btn-primary' ng-click='nextStep()'>Continue</button>
+			</div>
+			<br><br>
+		</form>
+</body>

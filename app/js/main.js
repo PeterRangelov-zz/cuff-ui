@@ -1,19 +1,47 @@
-console.log('main.js running')
+var cuff_ui = angular.module("cuff_ui", ['ui.mask', 'ngRoute']);
 
-var ui_template = angular.module('ui_template', ['ngRoute', 'ui.bootstrap']);
+cuff_ui.config(['$routeProvider', function($routeProvider) {
 
-ui_template.config(['$routeProvider', '$locationProvider', function($routeProvider, $locationProvider) {
-	$routeProvider
-      .when('/', {
-        templateUrl: 'partials/main.html',
-        controller: 'mainController'
-      })
-      .when('/login', {
-        templateUrl: 'partials/login.html',
-        controller: 'loginController'
-      })
-        
+  $routeProvider
+    .when('/', {
+      templateUrl: 'partials/contributor.html',
+      controller: 'contributorController'
+    })
+    .when('/contributor', {
+      templateUrl: 'partials/contributor.html',
+      controller: 'contributorController'
+    })
+    .when('/subject', {
+      templateUrl: 'partials/subject.html',
+      controller: 'subjectController'
+    })
+    .when('/appearance', {
+      templateUrl: 'partials/physical_appearance.html',
+      controller: 'physicalAppearanceController'
+    })
+    .when('/warrants', {
+      templateUrl: 'partials/warrants.html',
+      controller: 'warrantsController'
+    })
+    .when('/judgments', {
+      templateUrl: 'partials/judgments.html',
+      controller: 'judgmentsController'
+    })
+    .when('/criminal_history', {
+      templateUrl: 'partials/criminal_history.html',
+      controller: 'criminalHistoryController'
+    })
+    .when('/submit', {
+      templateUrl: 'partials/submit.html',
+      controller: 'submitController'
+    })
+    .when('/confirmation', {
+      templateUrl: 'partials/confirmation.html'
+//      controller: 'submitController'
+    })
+    .when('/terms', {
+      templateUrl: 'partials/terms_and_conditions.html'
+    })
 
-      ;
 
 }]);

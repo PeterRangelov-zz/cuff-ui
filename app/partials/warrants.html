@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<script type='text/javascript' src='lib/warn_on_reload.js'></script>
+<body>
+	<div>
+		<ul class="breadcrumb">
+          <li><a href='/contributor'>Your information</a></li>
+          <li><a href='/subject'>Subject information</a></li>
+          <li><a href='/appearance'>Appearance</a></li>
+          <li class='active'><b>Warrants</b></li>
+          <li>Judgments</li>
+          <li>Criminal history</li>
+          <li>Review & Submit</li>
+	    </ul>
+	</div>
+	<h1 class='text-success'>Active/Inactive Warrants</h1>
+	<p>Enter all warrants for subject. If the warrant is for parole or probation violation, include it here and include the original charge on the Criminal History screen.</p>
+	<hr>
+
+	<form name='form' novalidate>
+		<div class='row'>
+			<div class='form-group col-xs-12 col-md-6'>
+				<label for='municipality'>Municipality</label>
+				<span ng-show='(form.municipality.$touched && form.municipality.$invalid) || (form.$submitted && form.municipality.$invalid)' class='text-danger'>Required</span>
+				<input type='text' name='municipality' ng-model='municipality' class='form-control input-sm' required maxlength='40'>
+			</div>
+
+
+				<div class='form-group col-xs-12 col-md-6'>
+					<label for='warrant_number'>Warrant Number</label>
+					<span ng-show='(form.warrant_number.$touched && form.warrant_number.$invalid) || (form.$submitted && form.warrant_number.$invalid)' class='text-danger'>Required</span>
+					<input type='text' name='warrant_number' ng-model='warrant_number' class='form-control input-sm' required maxlength='40'>
+				</div>
+
+
+				<div class='form-group col-xs-12 col-md-6'>
+					<label for='charge'>Charge</label>
+					<span ng-show='(form.charge.$touched && form.charge.$invalid) || (form.$submitted && form.charge.$invalid)' class='text-danger'>Required</span>
+					<input type='text' name='charge' ng-model='charge' class='form-control input-sm' required maxlength='40'>
+				</div>
+
+
+
+				<div class='form-group col-xs-12 col-md-3 '>
+					<label for='month'>Month</label>
+					<span ng-show='(form.month.$touched && form.month.$invalid) || (form.$submitted && form.month.$invalid)' class='text-danger'>Required</span>
+					<select name='month' ng-model='month' class='input-sm form-control' required>
+						<option ng-repeat='month in warrant_months' value='{{month}}'>{{month}}</option>
+					</select>
+				</div>
+
+
+				<div class='form-group col-xs-12 col-md-3 '>
+					<label for='year'>Year</label>
+					<span ng-show='(form.year.$touched && form.year.$invalid) || (form.$submitted && form.year.$invalid)' class='text-danger'>Required</span>
+					<select name='year' ng-model='year' class='form-control input-sm' required>
+						<option ng-repeat='year in warrant_years' value='{{year}}'>{{year}}</option>
+					</select>
+				</div>
+				
+				<div class='col-xs-12'>
+					<button type='submit' class='btn btn-success' ng-click='addWarrant(form.$valid, municipality, charge, warrant_number, month, year)'>Add warrant</button>
+				</div>
+
+			</div>
+		</div>
+	</form>
+	<br><br>
+		
+	<div class='row '>
+		<div class='col-xs-12 col-md-11 col-lg-9 center-block'>
+			<span ng-show='warrants.length==0'>No added warrants</span>
+			<table class='table table-bordered table-condensed table-hover' ng-show='warrants.length>0'>
+				<tr>
+					<th>Municipality</th>
+					<th>Warrant Number</th>
+					<th>Charge</th>
+					<th>Month/Year</th>
+					<th>Remove Entry</th>
+				</tr>
+				<tr ng-repeat='warrant in warrants'>
+					<td>{{warrant.municipality}}</td>
+					<td>{{warrant.warrant_number}}</td>
+					<td>{{warrant.charge}}</td>
+					<td>{{warrant.month}}/{{warrant.year}}</td>
+					<td>
+						<i class='btn fa fa-trash-o text-danger' ng-click='removeWarrant(warrant.municipality, warrant.charge, warrant.warrant_number, month, year)'></i>
+					</td>
+				</tr>
+			</table>
+		</div>
+	</div>
+
+	<br><br>
+
+		<div class='pull-right'>
+			<button type='button' class='btn-sm btn-primary' ng-click='previousStep()'>Back</button>
+			<button type='button' class='btn-sm btn-primary' ng-click='nextStep()'>Continue</button>
+		</div>
+		<br><br>
+</body>

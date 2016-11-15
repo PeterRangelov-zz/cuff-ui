@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<script type='text/javascript' src='lib/warn_on_reload.js'></script>
+<body>
+	<div>
+		<ul class="breadcrumb">
+          <li><a href='/contributor'>Your information</a></li>
+          <li><a href='/subject'>Subject information</a></li>
+          <li><a href='/appearance'>Appearance</a></li>
+          <li><a href='/warrants'>Warrants</a></li>
+          <li><a href='/judgments'>Judgments</a></li>
+          <li><a href='/criminal_history'>Criminal history</a></li>
+          <li class='active'><b>Review & Submit</b></li>
+	    </ul>
+	</div>
+	<h1 class='text-success'>Review & Submit</h1>
+	<p>Please review the information for accuracy before submission. You can edit the information by going to that particular section using the links above, or the back button below.</p>
+	<hr>
+
+	<form name='form' novalidate>
+		<div class='panel panel-success'>
+			<div class='panel-heading'>
+				<h4>Your information</h4>
+			</div>
+		  	<div class='panel-body'>
+		  		<h4>Section 1</h4>
+		  		<div class='form-group'>
+					<label>Entry type</label>
+					<input value='{{contributor.entry_type}}' class='form-control input-sm' readonly>
+				</div>
+		  		<div class='form-group'>
+					<label>Name</label>
+					<input value='{{contributor.first_name}} {{contributor.last_name}}' class='form-control input-sm' readonly>
+				</div>
+		  		<div class='form-group'>
+					<label>Relationship to subject</label>
+					<input value='{{contributor.relationship}}' class='form-control input-sm' readonly>
+				</div>
+		  		<div class='form-group'>
+					<label>Address</label>
+					<input value='{{contributor.city}}, {{contributor.state}} {{contributor.zipcode}}' class='form-control input-sm' readonly>
+				</div>
+		  		<div class='form-group'>
+					<label>Phone number</label>
+					<input value='{{contributor.phone_number}}' class='form-control input-sm' readonly>
+				</div>
+		  		<div class='form-group'>
+					<label>Email address</label>
+					<input value='{{contributor.email_address}}' class='form-control input-sm' readonly>
+				</div>
+		  		<div class='form-group'>
+					<label>Preferred contact method</label>
+					<input value='{{contributor.preferred_contact_method}}' class='form-control input-sm' readonly>
+				</div>
+			</div>
+				
+			<div class='panel-body'>
+				<h4>Section 2</h4>
+		  		<div class='form-group'>
+					<label>Contact name</label>
+					<input value='{{contributor.contact_name}}' class='form-control input-sm' readonly>
+				</div>
+		  		<div class='form-group'>
+					<label>Organization</label>
+					<input value='{{contributor.contact_organization}}' class='form-control input-sm' readonly>
+				</div>
+		  		<div class='form-group'>
+					<label>Address</label>
+					<input value='{{contributor.contact_city}}, {{contributor.contact_state}}' class='form-control input-sm' readonly>
+				</div>
+		  		<div class='form-group'>
+					<label>Phone number</label>
+					<input value='{{contributor.contact_phone_number}}' class='form-control input-sm' readonly>
+				</div>
+				<div class='form-group'>
+					<label>Email address</label>
+					<input value='{{contributor.contact_email_address}}' class='form-control input-sm' readonly>
+				</div>
+			</div>
+			
+		</div>
+		
+		<div class='panel panel-success'>
+			<div class='panel-heading'>
+				<h4>Subject Information</h4>
+			</div>
+		  	<div class='panel-body'>
+		  		<div class='form-group'>
+					<label>Gender</label>
+					<input value='{{subject.gender}}' class='form-control input-sm' readonly>
+				</div>
+				<div class='form-group'>
+					<label>Name</label>
+					<input value='{{subject.first_name}} {{subject.middle_name}} {{subject.last_name}}' class='form-control input-sm' readonly>
+				</div>
+				<div class='form-group'>
+					<label>Aliases</label>
+					<input value='{{subject.aliases}}' class='form-control input-sm' readonly>
+				</div>
+				<div class='form-group'>
+					<label>Driver's license</label>
+					<input value='{{subject.drivers_license}}' class='form-control input-sm' readonly>
+				</div>
+				<div class='form-group'>
+					<label>Social security number</label>
+					<input value='{{subject.ssn}}' class='form-control input-sm' readonly>
+				</div>
+				<div class='form-group'>
+					<label>Date of birth</label>
+					<input value='{{subject.dob}}' class='form-control input-sm' readonly>
+				</div>
+				<div class='form-group'>
+					<label>Profession(s)</label>
+					<input value='{{subject.profession}}' class='form-control input-sm' readonly>
+				</div>
+				<div class='form-group'>
+					<label>States of residence</label>
+					<input value='{{subject.states}}' class='form-control input-sm' readonly>
+				</div>
+				<div class='form-group'>
+					<label>Vehicle</label>
+					<input value='{{subject.vehicle}}' class='form-control input-sm' readonly>
+				</div>
+				<div class='form-group'>
+					<label>Vehicle Plate Number</label>
+					<input value='{{subject.vehicle_plate_number}}' class='form-control input-sm' readonly>
+				</div>
+				<div class='form-group'>
+					<label>VIN</label>
+					<input value='{{subject.vin}}' class='form-control input-sm' readonly>
+				</div>
+				<div class='form-group'>
+					<label>Background information</label>
+					<input value='{{subject.background_info}}' class='form-control input-sm' readonly>
+				</div>				
+			</div>
+		</div>
+		
+		<div class='panel panel-success'>
+			<div class='panel-heading'>
+				<h4>Physical Appearance</h4>
+			</div>
+		  	<div class='panel-body'>
+				<label>Race<input value='{{physicalAppearance.race}}' class='form-control input-sm' readonly></label>
+				<label>Nationality<input value='{{physicalAppearance.nationality}}' class='form-control input-sm' readonly></label>
+				<label>Height<input value='{{Math.floor(physicalAppearance.height/12)}} ft {{physicalAppearance.height%12}} in | {{Math.floor(physicalAppearance.height*2.54)}} cm ' class='form-control input-sm' readonly></label>
+				<label>Weight<input value='{{physicalAppearance.weight}} lbs | {{Math.floor(physicalAppearance.weight*0.453592)}} kg' class='form-control input-sm' readonly></label>
+				<label>Hair color<input value='{{physicalAppearance.hair_color}}' class='form-control input-sm' readonly></label>
+				<label>Eye color<input value='{{physicalAppearance.eye_color}}' class='form-control input-sm' readonly></label>
+				<label>Other characteristics<input value='{{physicalAppearance.physical_characteristics}}' class='form-control input-sm' readonly></label>
+			</div>
+		</div>
+		
+		<div class='panel panel-success'>
+			<div class='panel-heading'>
+				<h4>Warrants</h4>
+			</div>
+		  	<div class='panel-body'>
+		  		<p ng-hide='warrants.length>0'>You have not entered warrants.</p>
+				<table class='table table-bordered' ng-show='warrants.length>0'>
+					<thead>
+						<tr>
+							<th>Municipality</th>
+							<th>Warrant number</th>
+							<th>Charge</th>
+							<th>Month/year</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr ng-repeat='w in warrants'>
+							<td>{{w.municipality}}</td>
+							<td>{{w.warrant_number}}</td>
+							<td>{{w.charge}}</td>
+							<td>{{w.month}}/{{w.year}}</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+		
+		<div class='panel panel-success'>
+			<div class='panel-heading'>
+				<h4>Judgments</h4>
+			</div>
+		  	<div class='panel-body'>
+		  		<p ng-hide='judgments.length>0'>You have not entered judgments.</p>
+				<table class='table table-bordered' ng-show='judgments.length>0'>
+					<thead>
+						<tr>
+							<th>Municipality</th>
+							<th>Judgment number</th>
+							<th>Amount</th>
+							<th>Entered on</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr ng-repeat='j in judgments'>
+							<td>{{j.municipality}}</td>
+							<td>{{j.judgment_number}}</td>
+							<td>{{j.amount}}</td>
+							<td>{{j.month}}/{{j.year}}</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+		
+		<div class='panel panel-success'>
+			<div class='panel-heading'>
+				<h4>Criminal history</h4>
+			</div>
+		  	<div class='panel-body'>
+		  		<label>NCIS number<input value='' class='form-control input-sm' readonly></label>
+		  		<p ng-hide='criminalHistory.length>0'>You have not entered criminal history.</p>
+				<table class='table table-bordered' ng-show='criminalHistory.length>0'>
+					<thead>
+						<tr>
+							<th>Municipality</th>
+							<th>Charge</th>
+							<th>Convicted on</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr ng-repeat='c in criminalHistory'>
+							<td>{{c.municipality}}</td>
+							<td>{{c.charge}}</td>
+							<td>{{c.month}}/{{c.year}}</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+		
+		
+		
+		<div class='row'>
+			<div class='col-xs-12'>
+				<p>By submitting you agree with <a href='#/terms' target='blank'>CUFF's Privacy & Usage Policy</a>.</p>
+			</div>
+		</div>
+	</form>
+	
+	<div ng-show='isError'>
+		<h1 class='text-danger' >Unexpected error occured.</h1>
+		<p>Form could not be submitted due to a server error. Please print your submission as PDF (CTRL + P) and email it to cuffnonprof@earthlink.net</p>
+		<p>
+			<a href='mailto:peter.rangelov11@gmail.com?subject=CUFF Error: {{errorCode}} {{errorCodeText}}&body=""'>Click here to send an error report</a>. Please be sure to copy+paste the error stack trace below into the body of the email.
+		</p>
+		<div class='text-danger'>
+			{{errorDetails}}
+		</div>
+	</div>
+	<br><br>
+
+
+	<div class='pull-right'>
+		<button type='button' class='btn-sm btn-primary' ng-click='previousStep()' ng-disabled='isProcessing'>Back</button>
+		<button type='button' class='btn-sm btn-primary' ng-click='submit()' ng-disabled='isProcessing'>Submit</button>
+	</div>
+		
+		
+	<br><br>
+	
+</body>

@@ -1,12 +1,13 @@
 {
-  "name": "UI Project Template",
+  "name": "CUFF UI",
+  "main": "index.html",
+  "homepage": "https://github.com/PeterRangelov/cuff-ui",
   "authors": [
     "PeterRangelov <peter.rangelov11@gmail.com>"
   ],
   "description": "",
-  "main": "",
   "license": "MIT",
-  "homepage": "",
+  "private": true,
   "ignore": [
     "**/.*",
     "node_modules",
@@ -17,20 +18,16 @@
   "dependencies": {
     "angular": "1.5.8",
     "font-awesome": "fontawesome#^4.6.3",
-    "angular-animate": "~1.5.3",
-    "angular-cookies": "~1.5.3",
-    "angular-sanitize": "~1.5.3",
-    "angular-messages": "~1.5.3",
-    "angular-aria": "~1.5.3",
-    "angular-resource": "~1.5.3",
-    "angular-route": "~1.5.3",
-    "bootstrap-sass": "~3.3.5",
-    "angular-bootstrap": "^2.0.0",
-    "angular-toastr": "~1.5.0",
     "moment": "~2.10.6",
-    "animate.css": "~3.4.0",
     "bootstrap": "^3.3.6",
-    "angular-ui-grid": "^3.2.9",
-    "string-format-js": "^0.1.8"
+    "string-format-js": "^0.1.8",
+    "underscore": "^1.8.3",
+    "angular-route": "1.5.8",
+    "angular-ui-mask": "^1.8.6"
+  },
+  "resolutions": {
+    "angular": ">=1.2.16 1.4.x"
   }
 }
+
+

@@ -1,5 +1,3 @@
-<b>To fetch: git clone https://github.com/PeterRangelov/ui-project-template</b>
-
 <b>Install dev dependencies</b>
 <ol>
 	<li>npm install</li>

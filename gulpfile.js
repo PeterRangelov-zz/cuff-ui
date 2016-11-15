@@ -66,6 +66,9 @@ gulp.task('build', function() {
     .pipe(uglify())
     .pipe(gulp.dest('dist'));
 
+    gulp.src(['app/js/dropdown_values/*.json'])
+    .pipe(gulp.dest('dist/js/dropdown_values'));
+
   gulp.src(['bower_components/**/*'])
     .pipe(plumber())
     .pipe(gulp.dest('dist/bower_components'));

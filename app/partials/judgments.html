@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<script type='text/javascript' src='lib/warn_on_reload.js'></script>
+<body>
+	<div>
+		<ul class="breadcrumb">
+          <li><a href='/contributor'>Your information</a></li>
+          <li><a href='/subject'>Subject information</a></li>
+          <li><a href='/appearance'>Appearance</a></li>
+          <li><a href='/warrants'>Warrants</a></li>
+          <li class='active'><b>Judgments</b></li>
+          <li>Criminal history</li>
+          <li>Review & Submit</li>
+	    </ul>
+	</div>
+	<h1 class='text-success'>Active/Inactive Judgments</h1>
+	<hr>
+	<form name='form' novalidate>
+		<div class='row'>
+			<div class='form-group col-xs-12 col-md-6'>
+				<label for='municipality'>Municipality</label>
+				<span ng-show="(form.municipality.$touched && form.municipality.$invalid) || (form.$submitted && form.municipality.$invalid)" class='text-danger'>Required</span>
+				<input type='text' name='municipality' ng-model='municipality' class='form-control input-sm' required maxlength='40'>
+			</div>
+
+
+				<div class='form-group col-xs-12 col-md-6'>
+					<label for='judgment_number'>Judgment Number</label>
+					<span ng-show="(form.judgment_number.$touched && form.judgment_number.$invalid) || (form.$submitted && form.judgment_number.$invalid)" class='text-danger'>Required</span>
+					<input type='text' name='judgment_number' ng-model='judgment_number' class='form-control input-sm' required maxlength='30'>
+				</div>
+
+
+				<div class='form-group col-xs-12 col-md-6'>
+					<label for='amount'>Amount</label>
+					<span ng-show="(form.amount.$touched && form.amount.$invalid) || (form.$submitted && form.amount.$invalid)" class='text-danger'>Required</span>
+					<input type='text' name='amount' ng-model='amount' class='form-control input-sm' ui-money-mask required maxlength='20'>
+				</div>
+
+
+
+				<div class='form-group col-xs-12 col-md-3'>
+					<label for='month'>Month</label>
+					<span ng-show='(form.month.$touched && form.month.$invalid) || (form.$submitted && form.month.$invalid)' class='text-danger'>Required</span>
+					<select name='month' ng-model='month' class='input-sm form-control' required>
+						<option ng-repeat='m in months' value='{{m}}'>{{m}}</option>
+					</select>
+				</div>
+
+
+				<div class='form-group col-xs-12 col-md-3'>
+					<label for='year'>Year</label>
+					<span ng-show='(form.year.$touched && form.year.$invalid) || (form.$submitted && form.year.$invalid)' class='text-danger'>Required</span>
+					<select name='year' ng-model='year' class='form-control input-sm' required>
+						<option ng-repeat='y in years' value='{{y}}'>{{y}}</option>
+					</select>
+				</div>
+				
+				<div class='col-xs-12'>
+					<button type='submit' class='btn btn-success' ng-click='addjudgment(form.$valid, municipality, amount, judgment_number, month, year)'>Add judgment</button>
+				</div>
+
+			</div>
+		</div>
+	</form>
+	<br><br>
+		
+	<div class='row '>
+		<div class='col-xs-12 col-md-11 col-lg-9 center-block'>
+			<span ng-show="judgments.length==0">No added judgments</span>
+			<table class="table table-bordered table-condensed table-hover" ng-show='judgments.length>0'>
+				<tr>
+					<th>Municipality</th>
+					<th>Judgment Number</th>
+					<th>Amount</th>
+					<th>Entered on</th>
+					<th>Remove Entry</th>
+				</tr>
+				<tr ng-repeat="judgment in judgments" >
+					<td>{{judgment.municipality}}</td>
+					<td>{{judgment.judgment_number}}</td>
+					<td>${{judgment.amount}}</td>
+					<td>{{judgment.month}}/{{judgment.year}}</td>
+					<td>
+						<i class="btn fa fa-trash-o text-danger" ng-click="removejudgment(judgment.municipality, judgment.amount, judgment.judgment_number, judgment.month, judgment.year)"></i>
+					</td>
+				</tr>
+			</table>
+		</div>
+	</div>
+
+	<br><br>
+	
+
+
+		<div class="pull-right">
+			<button type='button' class='btn-sm btn-primary' ng-click='previousStep()'>Back</button>
+			<button type='button' class='btn-sm btn-primary' ng-click='nextStep()'>Continue</button>
+		</div>
+		<br><br>
+	
+</body>
