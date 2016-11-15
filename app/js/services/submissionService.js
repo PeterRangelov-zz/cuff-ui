@@ -1,4 +1,4 @@
-cuff_ui.factory('SubmissionService', function () {
+cuff_ui.service('SubmissionService', function () {
     var contributor = {};
     var subject = {};
     var physicalAppearance = {};
@@ -10,24 +10,10 @@ cuff_ui.factory('SubmissionService', function () {
     return {
         // Contributor
         getContributor: function () {
-        	console.log('getting contributor from cookies')
-//        	c = $cookieStore.get('contributor');
-//        	console.log(c)
-//            return c;
         	return contributor;
         },
         setContributor: function (newVal) {
         	console.log(newVal)
-//            c = {
-//        		first_name:  newVal.first_name,
-//        		last_name: newVal.last_name,
-//        		email_address: newVal.email_address,
-//        		phone_number: newVal.phone_number,
-//        		preferred_contact_method: newVal.preferred_contact_method,
-//        		city: newVal.city,
-//        		state: newVal.state,
-//        		zipcode: newVal.zipcode
-//        	};
         	contributor = {
         		entry_type: newVal.entry_type,
         		first_name:  newVal.first_name,
@@ -46,14 +32,11 @@ cuff_ui.factory('SubmissionService', function () {
         		contact_phone_number: newVal.contact_phone_number,
         		contact_email_address: newVal.contact_email_address
         	};
-//        	$cookieStore.put('contributor', c)
-//        	console.log(c)
         },
         resetContributor: function () {
             contributor = {};
         },
 
-        // Subject
         getSubject: function () {
             return subject;
         },

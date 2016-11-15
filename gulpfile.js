@@ -63,7 +63,7 @@ gulp.task('build', function() {
 
     gulp.src(['app/**/*.js'])
     .pipe(plumber())
-    .pipe(uglify())
+    // .pipe(uglify())
     .pipe(gulp.dest('dist'));
 
     gulp.src(['app/js/dropdown_values/*.json'])
