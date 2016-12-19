@@ -1,4 +1,4 @@
-cuff_ui.controller('subjectController', ['$scope', 'SubmissionService', 'DropdownService', '$location', function($scope, SubmissionService, DropdownService, $location) {
+cuff_ui.controller('subjectController', ['$scope', 'SubmissionService', 'DropdownService', '$location', '$state', function($scope, SubmissionService, DropdownService, $location, $state) {
 	$scope.gender='male';
 	$scope.first_name;
 	$scope.middle_name;
@@ -21,14 +21,14 @@ cuff_ui.controller('subjectController', ['$scope', 'SubmissionService', 'Dropdow
 	$scope.previousStep = function() {
 		console.log('Going back')
 		console.log(SubmissionService.contributor)
-		$location.path('contributor')
+		$state.go('contributor')
 	}
 	
 	$scope.nextStep = function(isValid) {
 		console.log('Validating form. Valid? '+isValid)
 		if (isValid) {
 			SubmissionService.setSubject($scope);
-			$location.path('appearance')
+			$state.go('appearance')
 		}
 	}
 	

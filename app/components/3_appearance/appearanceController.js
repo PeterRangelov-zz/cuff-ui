@@ -1,4 +1,4 @@
-cuff_ui.controller('physicalAppearanceController', ['$scope', 'SubmissionService', 'DropdownService', '$location', function($scope, SubmissionService, DropdownService, $location) {
+cuff_ui.controller('appearanceController', ['$scope', 'SubmissionService', 'DropdownService', '$location', '$state', function($scope, SubmissionService, DropdownService, $location, $state) {
 		$scope.Math = window.Math;
 		$scope.races = DropdownService.getRaceList();
 		$scope.nationalities = DropdownService.getNationalityList();
@@ -17,7 +17,7 @@ cuff_ui.controller('physicalAppearanceController', ['$scope', 'SubmissionService
 
 		$scope.previousStep = function() {
 			console.log('Going back')
-			$location.path('subject')
+			$state.go('subject')
 		}
 		
 		$scope.nextStep = function(isValid) {
@@ -27,7 +27,7 @@ cuff_ui.controller('physicalAppearanceController', ['$scope', 'SubmissionService
 			if (isValid) {
 				SubmissionService.resetPhysicalAppearance();
 				SubmissionService.setPhysicalAppearance($scope);
-				$location.path('warrants')
+				$state.go('warrants')
 			}
 		}
 		

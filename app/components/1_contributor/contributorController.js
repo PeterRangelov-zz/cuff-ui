@@ -1,4 +1,4 @@
-cuff_ui.controller('contributorController', ['$scope', 'SubmissionService', 'DropdownService', '$location', function($scope, SubmissionService, DropdownService, $location) {
+cuff_ui.controller('contributorController', ['$scope', 'SubmissionService', 'DropdownService', '$location', '$state', function($scope, SubmissionService, DropdownService, $location, $state) {
 	$scope.entry_type='New';
 	$scope.first_name;
 	$scope.last_name;
@@ -22,7 +22,7 @@ cuff_ui.controller('contributorController', ['$scope', 'SubmissionService', 'Dro
 			console.log('Validating form. Valid? '+isValid)
 			if (isValid) {
 				SubmissionService.setContributor($scope);
-				$location.path('subject')
+				$state.go('subject')
 			}
 		}
 

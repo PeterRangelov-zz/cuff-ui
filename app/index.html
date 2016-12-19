@@ -1,29 +1,31 @@
 <!DOCTYPE html>
 <html ng-app='cuff_ui' >
 <head>
+    <title>Submit Fugitive | CUFF</title>
     <link rel='stylesheet' href='bower_components/bootstrap/dist/css/bootstrap.min.css'>
     <link rel='stylesheet' href='bower_components/font-awesome/css/font-awesome.min.css' >
 
     <script src='bower_components/angular/angular.js'></script>
-    <script src='bower_components/angular-route/angular-route.min.js'></script>
+    <script src='bower_components/angular-ui-router/release/angular-ui-router.js'></script>
+    <script src="bower_components/angular-ui-grid/ui-grid.js"></script>
     <script src='bower_components/underscore/underscore-min.js'></script>
     <script src='bower_components/angular-ui-mask/dist/mask.min.js'></script>
     <script src='bower_components/jquery/dist/jquery.min.js'></script>
     
-    <script src='js/main.js'></script>
+    <script src='app.module.js'></script>
+    <script src='app.routes.js'></script>
     
-    <script type='text/javascript' src='js/services/dropdownService.js'></script>
-    <script type='text/javascript' src='js/services/submissionService.js'></script>
+    <script src='js/services/dropdownService.js'></script>
+    <script src='js/services/submissionService.js'></script>
    
-
-    <script type='text/javascript' src='js/controllers/rootController.js'></script>
-    <script type='text/javascript' src='js/controllers/warrantsController.js'></script>
-    <script type='text/javascript' src='js/controllers/judgmentsController.js'></script>
-    <script type='text/javascript' src='js/controllers/contributorController.js'></script>
-    <script type='text/javascript' src='js/controllers/subjectController.js'></script>
-    <script type='text/javascript' src='js/controllers/physicalAppearanceController.js'></script>
-    <script type='text/javascript' src='js/controllers/criminalHistoryController.js'></script>
-    <script type='text/javascript' src='js/controllers/submitController.js'></script>
+    <script src='components/1_contributor/contributorController.js'></script>
+    <script src='components/2_subject/subjectController.js'></script>
+    <script src='components/3_appearance/appearanceController.js'></script>
+    <script src='components/4_warrants/warrantsController.js'></script>
+    <script src='components/5_judgments/judgmentsController.js'></script>
+    <script src='components/6_criminal_history/criminalHistoryController.js'></script>
+    <script src='components/7_submit/submitController.js'></script>
+    
     
 
         
@@ -31,9 +33,9 @@
 
 <body>
     <div class='container'>
-        <div class='row'>       
-            <div class='col-xs-12 col-md-9' ng-view>
-            
+        <div class='row' >
+            <div class='col-xs-12 col-md-9' ui-view>
+              
             </div>
             
             <div class='visible-md visible-lg visible-xl col-md-2'>

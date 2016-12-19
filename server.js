@@ -4,5 +4,5 @@ var app = express();
 app.use(express.static('dist'));
 
 app.listen(process.env.PORT || 3000, function () {
-  console.log('Listening on port 3000!');
+  console.log('CUFF UI is listening on port 3000!');
 });

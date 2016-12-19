@@ -1,4 +1,4 @@
-cuff_ui.controller('submitController', ['$scope', 'SubmissionService', 'DropdownService', '$http', '$location', '$httpParamSerializerJQLike', function($scope, SubmissionService, DropdownService, $http, $location, $httpParamSerializerJQLike) {
+cuff_ui.controller('submitController', ['$scope', 'SubmissionService', 'DropdownService', '$http', '$location', '$httpParamSerializerJQLike', '$state', function($scope, SubmissionService, DropdownService, $http, $location, $httpParamSerializerJQLike, $state) {
 	$scope.Math = window.Math;
 	$scope.isProcessing = false;
 	
@@ -19,7 +19,7 @@ cuff_ui.controller('submitController', ['$scope', 'SubmissionService', 'Dropdown
 
 	$scope.previousStep = function() {
 		console.log('Going back')
-		$location.path('criminal_history')
+		$state.go('criminalHistory')
 	}
 	
 	$scope.nextStep = function(isValid) {

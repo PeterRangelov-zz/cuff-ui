@@ -1,4 +1,4 @@
-cuff_ui.controller('judgmentsController', ['$scope', 'SubmissionService', 'DropdownService', '$location', function($scope, SubmissionService, DropdownService, $location) {
+cuff_ui.controller('judgmentsController', ['$scope', 'SubmissionService', 'DropdownService', '$location', '$state', function($scope, SubmissionService, DropdownService, $location, $state) {
 		$scope.judgments = [];
 		$scope.municipality;
 		$scope.amount;
@@ -32,12 +32,12 @@ cuff_ui.controller('judgmentsController', ['$scope', 'SubmissionService', 'Dropd
 
 		$scope.previousStep = function() {
 			console.log('Going back')
-			$location.path('warrants')
+			$state.go('warrants')
 		}
 		
 		$scope.nextStep = function() {
 			SubmissionService.setJudgments($scope.judgments);
-			$location.path('criminal_history')
+			$state.go('criminalHistory')
 		}
 		
 		if (!_.isEmpty(SubmissionService.getJudgments())) {

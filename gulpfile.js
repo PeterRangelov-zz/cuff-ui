@@ -40,7 +40,7 @@ gulp.task('serve', function() {
     });
 
     gulp.watch("app/**/*.html").on("change", reload);
-    gulp.watch("app/js/**/*.js").on("change", reload);
+    gulp.watch("app/**/*.js").on("change", reload);
 
 });
 
@@ -63,7 +63,7 @@ gulp.task('build', function() {
 
     gulp.src(['app/**/*.js'])
     .pipe(plumber())
-    // .pipe(uglify())
+    .pipe(uglify({mangle: false}))
     .pipe(gulp.dest('dist'));
 
     gulp.src(['app/js/dropdown_values/*.json'])
